@@ -27,8 +27,10 @@ while game_is_on:
     # detect if the ball has collided with the paddle
     if ball.distance(r_paddle) < 50 and ball.xcor() > 320 or ball.distance(l_paddle) < 50 and ball.xcor() < -320:
         ball.bounce_x()
-    # detect if the ball has gone out of bounds
-    if abs(ball.xcor()) > 400:
+    # detect if the left paddle misses
+    if abs(ball.xcor()) > 380:
         ball.reset_game()
-        # game_is_on = False
+    # detect if the right paddle misses
+    if abs(ball.xcor()) > 380:
+        ball.reset_game()
 screen.exitonclick()

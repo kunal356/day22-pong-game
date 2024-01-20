@@ -10,6 +10,7 @@ class Ball(Turtle):
         self.penup()
         self.x_moves = 10
         self.y_moves = 10
+        self.move_speed = 0.1
 
     def move(self):
         new_x = self.xcor() + self.x_moves
@@ -21,7 +22,9 @@ class Ball(Turtle):
 
     def bounce_x(self):
         self.x_moves *= -1
+        self.move_speed *= 0.9
 
     def reset_game(self):
         self.goto(0, 0)
         self.bounce_x()
+        self.move_speed = 0.1
